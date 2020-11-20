@@ -19,4 +19,8 @@ int main()
         cout << "You inputed " << inp;
     }
     cout << endl;
+
+    cout << "something" << endl;
+
+
 }
