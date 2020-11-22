@@ -3,7 +3,7 @@ class WorldPoint
 {
     public:
         WorldPoint(double x, double y, double z);
-        ~WorldPoint();
+        // ~WorldPoint();
         double getXCoord();
         double getYCoord();
         double getZCoord();

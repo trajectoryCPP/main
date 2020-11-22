@@ -1,9 +1,8 @@
 #include <iostream>
 #include "WorldPoint.h"
-#include <eigen3/Eigen/Dense>
+// #include <eigen3/Eigen/Dense>
 
-using namespace std;
-using namespace Eigen;
+// using namespace Eigen;
 
 int main()
 {
@@ -12,9 +11,9 @@ int main()
 	std::cout << "Y coordinate of world point is " << q.getYCoord() << std::endl;
 	std::cout << "Z coordinate of world point is " << q.getZCoord() << std::endl;
 
+
 	// MatrixXd m = MatrixXd::Random(3, 3);
     // cout << "m =" << endl << m << endl;
-
 	// m = (m + MatrixXd::Constant(3, 3, 1.2));
 	// cout << "m =" << endl << m << endl;
 	// VectorXd v(3);
