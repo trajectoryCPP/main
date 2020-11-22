@@ -22,3 +22,18 @@ double WorldPoint::getZCoord()
 {
     return zCoord;
 }
+
+void WorldPoint::setXCoord(double x)
+{
+    this->xCoord = x;
+}
+
+void WorldPoint::setYCoord(double y)
+{
+    this->yCoord = y;
+}
+
+void WorldPoint::setZCoord(double z)
+{
+    this->zCoord = z;
+}
