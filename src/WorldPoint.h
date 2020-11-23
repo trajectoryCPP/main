@@ -12,7 +12,7 @@ class WorldPoint
         void setYCoord(double y);
         void setZCoord(double z);
 
-    private:
+    private:  
         double xCoord;
         double yCoord;
         double zCoord;
