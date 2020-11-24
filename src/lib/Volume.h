@@ -1,19 +1,19 @@
-#include "Worldpoint.h"
+#include "WorldPoint.h"
 
 class Volume
 {
     public:
-        Volume(class hyperplaneMatrix, double translationsVector [6]);
+        Volume(WorldPoint hpMatrix [6], double bVector [6]);
         // ~Volume();
-        hyperplaneMatrix getHyperplaneMatrix();
+        WorldPoint getHyperplaneMatrix();
         double getTranslationsVector();
-        bool isIn(WorldPoint q);
+        bool isIn(WorldPoint);
 
 
-        void setHyperplaneMatrix(hyperplaneMatrix);
-        void setTranslationsVector(double x);
+        void setHyperplaneMatrix(WorldPoint [6]);
+        void setTranslationsVector(double [6]);
 
     private:
-        class hyperplaneMatrix;
-        double translationsVector [6];
+        WorldPoint hpMatrix [6];
+        double bVector [6];
 };
