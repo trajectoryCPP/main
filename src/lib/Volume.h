@@ -1,19 +1,22 @@
 #include "WorldPoint.h"
+#include <vector>
 
 class Volume
 {
     public:
-        Volume(WorldPoint hpMatrix [6], double bVector [6]);
-        // ~Volume();
-        WorldPoint getHyperplaneMatrix();
-        double getTranslationsVector();
+        // constructor
+        Volume() = default;
+        Volume(std::vector<WorldPoint> X, std::vector<double> B);
+        // methods;
+        std::vector<WorldPoint> getHyperplaneMatrix();
+        std::vector<double> getTranslationsVector();
         bool isIn(WorldPoint);
 
 
-        void setHyperplaneMatrix(WorldPoint [6]);
+        void setHyperplaneMatrix(std::vector<WorldPoint>);
         void setTranslationsVector(double [6]);
 
     private:
-        WorldPoint hpMatrix [6];
-        double bVector [6];
+        std::vector<WorldPoint> hpMatrix;
+        std::vector<double> bVector;
 };

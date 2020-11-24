@@ -7,9 +7,9 @@ Volume::Volume(WorldPoint X [6], double B [6])
     this->bVector = B;
 }
 
-WorldPoint Halfspace::getNormalVector()
+WorldPoint* Volume::getHyperplaneMatrix()
 {
-    return normalVector;
+    return hpMatrix;
 }
 
 double Halfspace::getB()
