@@ -1,7 +1,7 @@
-
+#include "WorldPoint.h"
 #include "Volume.h"
 
-Volume::Volume(HyperplaneMatrix X, double B)
+Volume::Volume(WorldPoint X [6], double B [6])
 {
     this->hpMatrix = X;
     this->bVector = B;
