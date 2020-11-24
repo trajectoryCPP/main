@@ -3,16 +3,17 @@
 class Volume
 {
     public:
-        Volume(class hyperplaneMatrix, WorldPoint normalVector);
+        Volume(class hyperplaneMatrix, double translationsVector [6]);
         // ~Volume();
         hyperplaneMatrix getHyperplaneMatrix();
-        WorldPoint getNormalVector();
+        double getTranslationsVector();
+        bool isIn(WorldPoint q);
 
 
         void setHyperplaneMatrix(hyperplaneMatrix);
-        void setNormalVector(double x);
+        void setTranslationsVector(double x);
 
     private:
         class hyperplaneMatrix;
-        WorldPoint normalVector;
+        double translationsVector [6];
 };
