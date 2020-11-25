@@ -1,28 +1,33 @@
 #include "WorldPoint.h"
 #include "Volume.h"
 
-Volume::Volume(WorldPoint X [6], double B [6])
+Volume::Volume(std::vector<WorldPoint> X, std::vector<double> B)
 {
     this->hpMatrix = X;
     this->bVector = B;
 }
 
-WorldPoint* Volume::getHyperplaneMatrix()
+std::vector<WorldPoint> Volume::getHyperplaneMatrix()
 {
     return hpMatrix;
 }
 
-double Halfspace::getB()
+std::vector<double> Volume::getBVector()
 {
-    return b;
+    return bVector;
 }
 
-void Halfspace::setNormalVector(WorldPoint q)
+void Volume::setHyperplaneMatrix(std::vector<WorldPoint> X)
 {
-    this->normalVector = q;
+    this->hpMatrix = X;
 }
 
-void Halfspace::setB(double y)
+void Volume::setBVector(std::vector<double> B)
 {
-    this->b = y;
+    this->bVector = B;
+}
+
+bool Volume::isIn(WorldPoint)
+{
+    
 }

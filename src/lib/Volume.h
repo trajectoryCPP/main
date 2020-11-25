@@ -7,14 +7,14 @@ class Volume
         // constructor
         Volume() = default;
         Volume(std::vector<WorldPoint> X, std::vector<double> B);
-        // methods;
+        // get methods;
         std::vector<WorldPoint> getHyperplaneMatrix();
-        std::vector<double> getTranslationsVector();
-        bool isIn(WorldPoint);
-
-
+        std::vector<double> getBVector();
+        // set methods
         void setHyperplaneMatrix(std::vector<WorldPoint>);
-        void setTranslationsVector(double [6]);
+        void setBVector(std::vector<double>);
+        // method to check if a worldpoint is in the volume
+        bool isIn(WorldPoint);
 
     private:
         std::vector<WorldPoint> hpMatrix;
