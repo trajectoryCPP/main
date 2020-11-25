@@ -3,6 +3,7 @@
 class Halfspace
 {
     public:
+        Halfspace() = default;
         Halfspace(WorldPoint normalVector, double b);
         // ~Volume();
         WorldPoint getNormalVector();

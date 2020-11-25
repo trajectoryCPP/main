@@ -2,6 +2,7 @@
 class WorldPoint
 {
     public:
+        WorldPoint() = default;
         WorldPoint(double x, double y, double z);
         // ~WorldPoint();
         double getXCoord();
