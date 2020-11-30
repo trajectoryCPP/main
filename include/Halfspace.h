@@ -1,5 +1,6 @@
 #include "Worldpoint.h"
 
+
 class Halfspace
 {
     public:
