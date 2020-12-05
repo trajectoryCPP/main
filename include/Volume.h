@@ -1,23 +1,28 @@
-#include <vector>
+#ifndef VOLUME_H
+#define VOLUME_H
+
+#endif
+
+#include "Halfspace.h"
 #include <eigen3/Eigen/Dense>
+
 
 class Volume
 {
     public:
         // constructor
         Volume() = default;
-        Volume(Eigen::MatrixXd X, Eigen::MatrixXd B);
+        Volume(Eigen::MatrixXd normals, Eigen::MatrixXd displacements);
         // get methods;
-        Eigen::MatrixXd getHyperplaneMatrix();
-        Eigen::MatrixXd getBVector();
+        Eigen::MatrixXd getOutwardNormalMatrix();
+        Eigen::MatrixXd getDisplacements();
         // set methods
-        void setHyperplaneMatrix(Eigen::MatrixXd);
-        void setBVector(Eigen::MatrixXd);
+        void intersectHalfspace(Halfspace& H);
         // method to check if a worldpoint is in the volume
-        bool contains(Eigen::MatrixXd);
+        bool contains(WorldPoint);
 
     private:
-        Eigen::MatrixXd hpMatrix;
-        Eigen::MatrixXd bVector;
+        Eigen::MatrixXd outwardNormalMatrix;
+        Eigen::MatrixXd displacements;
     
 };

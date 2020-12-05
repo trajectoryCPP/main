@@ -1,28 +1,19 @@
 
 #include "Halfspace.h"
 
-Halfspace::Halfspace(WorldPoint normalVector, double b)
+Halfspace::Halfspace(WorldPoint outwardNormal, double displacement)
 {
-    this->normalVector = normalVector;
-    this->b = b;
+    this->outwardNormal = - outwardNormal.getMatrixRep();
+    this->displacement = displacement;
 }
 
-WorldPoint Halfspace::getNormalVector()
+Eigen::Vector3d Halfspace::getOutwardNormal()
 {
-    return normalVector;
+    return outwardNormal;
 }
 
-double Halfspace::getB()
+double Halfspace::getDisplacement()
 {
-    return b;
+    return displacement;
 }
 
-void Halfspace::setNormalVector(WorldPoint q)
-{
-    this->normalVector = q;
-}
-
-void Halfspace::setB(double y)
-{
-    this->b = y;
-}

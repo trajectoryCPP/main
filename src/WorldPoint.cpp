@@ -1,39 +1,16 @@
 
 #include "WorldPoint.h"
 
-WorldPoint::WorldPoint(double x, double y, double z)
-{
-    this->xCoord = x;
-    this->yCoord = y;
-    this->zCoord = z;
+WorldPoint::WorldPoint(double x, double y, double z) {
+  this->matrixRep(0) = x;
+  this->matrixRep(1) = y;
+  this->matrixRep(2) = z;
 }
 
-double WorldPoint::getXCoord()
-{
-    return xCoord;
-}
+Eigen::Vector3d WorldPoint::getMatrixRep() { return matrixRep; }
 
-double WorldPoint::getYCoord()
-{
-    return yCoord;
-}
+// void WorldPoint::setXCoord(double x) { this->xCoord = x; }
 
-double WorldPoint::getZCoord()
-{
-    return zCoord;
-}
+// void WorldPoint::setYCoord(double y) { this->yCoord = y; }
 
-void WorldPoint::setXCoord(double x)
-{
-    this->xCoord = x;
-}
-
-void WorldPoint::setYCoord(double y)
-{
-    this->yCoord = y;
-}
-
-void WorldPoint::setZCoord(double z)
-{
-    this->zCoord = z;
-}
+// void WorldPoint::setZCoord(double z) { this->zCoord = z; }
