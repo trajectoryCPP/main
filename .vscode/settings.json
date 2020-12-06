@@ -39,5 +39,6 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Python27\\python.exe"
 }
