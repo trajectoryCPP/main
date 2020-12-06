@@ -4,55 +4,26 @@ import numpy as np
 # This import registers the 3D projection, but is otherwise unused.
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
+# this function takes in a hyperplane matrix, bVector, and a worldpoint and outputs a plot of those objects
+def plotVolumes (hpMatrix, bVector, worldpoint)
+    # create x,y axes
+    xx, yy = np.meshgrid(range(10), range(10))
 
-# # prepare some coordinates
-# x, y, z = np.indices((8, 8, 8))
+    # loop over each hp, plotting each
+    for i in range(len(hpMatrix.length))
+        # convert vectors to array to manipulate
+        hpNormal = np.array(hpMatrix[i])
+        # calculate the z for each hp
+        z = (-hpNormal[0] * xx - hpNormal[1] * yy - bVector[i]) * 1. /hpNormal[2]
 
-# # draw cuboids in the top left and bottom right corners, and a link between them
-# cube1 = (x*y < 100) & (y < 3) & (z < 3)
-# cube2 = (x >= 5) & (y >= 5) & (z >= 5)
-# link = abs(x - y) + abs(y - z) + abs(z - x) <= 2
+        # plot the surface
+        plt3d = plt.figure().gca(projection='3d')
+        plt3d.plot_surface(xx, yy, z, alpha=0.5)
 
-# # combine the objects into a single boolean array
-# voxels = cube1 | cube2 | link
+        # Ensure that the next plot doesn't overwrite the first plot
+        ax = plt.gca()
 
-# # set the colors of each object
-# colors = np.empty(voxels.shape, dtype=object)
-# colors[link] = 'red'
-# colors[cube1] = 'blue'
-# colors[cube2] = 'green'
+    ax.scatter(worldpoint[0], worldpoint[1], worldpoint[2], color='green')
 
-# # and plot everything
-# fig = plt.figure()
-# ax = fig.gca(projection='3d')
-# ax.voxels(voxels, facecolors=colors, edgecolor='k')
+    plt.show()
 
-point  = np.array([6, 10, 3])
-normal1 = np.array([1, 10, 2])
-
-normal2 = np.array([2, 4, 6])
-
-point2 = np.array([10, 25, 25])
-
-# a plane is a*x+b*y+c*z+d=0
-# [a,b,c] is the normal. Thus, we have to calculate
-# d and 1we're set
-d1 = -point.dot(normal1)
-
-# create x,y
-xx, yy = np.meshgrid(range(10), range(10))
-
-# calculate corresponding z
-z1 = (-normal1[0] * xx - normal1[1] * yy - d1) * 1. /normal1[2]
-
-# plot the surface
-plt3d = plt.figure().gca(projection='3d')
-plt3d.plot_surface(xx, yy, z1, alpha=0.5)
-
-# Ensure that the next plot doesn't overwrite the first plot
-ax = plt.gca()
-
-ax.scatter(point2[0], point2[1], point2[2], color='green')
-
-
-plt.show()
