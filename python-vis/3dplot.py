@@ -5,12 +5,12 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 # this function takes in a hyperplane matrix, bVector, and a worldpoint and outputs a plot of those objects
-def plotVolumes (hpMatrix, bVector, worldpoint)
+def plotVolumes (hpMatrix, bVector, worldpoint):
     # create x,y axes
     xx, yy = np.meshgrid(range(10), range(10))
 
     # loop over each hp, plotting each
-    for i in range(len(hpMatrix.length))
+    for i in range(len(hpMatrix)):
         # convert vectors to array to manipulate
         hpNormal = np.array(hpMatrix[i])
         # calculate the z for each hp
@@ -27,3 +27,4 @@ def plotVolumes (hpMatrix, bVector, worldpoint)
 
     plt.show()
 
+plotVolumes([[1,10,5]], [3], [1,25,25])
