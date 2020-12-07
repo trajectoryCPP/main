@@ -3,23 +3,17 @@
 
 #endif
 
-#include <eigen3/Eigen/Dense>
-
 class WorldPoint
 {
-    public:
-        WorldPoint() = default;
-        WorldPoint(double x, double y, double z);
-        Eigen::Vector3d getMatrixRep();
-        // double getXCoord();
-        // double getYCoord();
-        // double getZCoord();
+public:
+    WorldPoint() = default;
+    WorldPoint(double x, double y, double z);
+    double getX();
+    double getY();
+    double getZ();
 
-        // void setXCoord(double x);
-        // void setYCoord(double y);
-        // void setZCoord(double z);
-
-    private:
-        Eigen::Vector3d matrixRep;
-
+private:
+    double xCoord;
+    double yCoord;
+    double zCoord;
 };

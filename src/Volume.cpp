@@ -1,29 +1,45 @@
 #include "Volume.h"
 
-Volume::Volume(Eigen::MatrixXd normals, Eigen::MatrixXd displacements) {
-  this->outwardNormalMatrix = normals;
-  this->displacements = displacements;
+Volume::Volume(std::vector<Halfspace> &halfspaces)
+{
+  this->halfspaces = halfspaces;
+  numPlanes = halfspaces.size();
 }
 
-Eigen::MatrixXd Volume::getOutwardNormalMatrix() { return outwardNormalMatrix; }
-
-Eigen::MatrixXd Volume::getDisplacements() { return displacements; }
-
-void Volume::intersectHalfspace(Halfspace& H){
-  // add the outward normal of the halfspace to the matrix of normals
-  outwardNormalMatrix.conservativeResize(outwardNormalMatrix.rows()+1, Eigen::NoChange);
-  outwardNormalMatrix.row(outwardNormalMatrix.rows()-1) = H.getOutwardNormal();
-  
-  // add the displacement to matrix of displacements
-  displacements.conservativeResize(displacements.rows()+1, Eigen::NoChange);
-  displacements.row(displacements.rows()-1) << H.getDisplacement();
-
+std::vector<WorldPoint> Volume::getOutwardNormals()
+{
+  std::vector<WorldPoint> outwardNormals(numPlanes);
+  for (int i = 0; i < numPlanes; i++)
+  {
+    outwardNormals.at(i) = halfspaces.at(i).getOutwardNormal();
+  }
+  return outwardNormals;
 }
 
-bool Volume::contains(WorldPoint q) {
+std::vector<double> Volume::getDisplacements()
+{
+  std::vector<double> displacements(numPlanes);
+  for (int i = 0; i < numPlanes; i++)
+  {
+    displacements.at(i) = halfspaces.at(i).getDisplacement();
+  }
+  return displacements;
+}
+
+void Volume::intersectHalfspace(const Halfspace &H)
+{
+  halfspaces.push_back(H);
+  numPlanes += 1;
+}
+
+bool Volume::contains(WorldPoint q)
+{
   bool result = true;
-  for (int i = 0; i < outwardNormalMatrix.rows(); i++) {
-    if ((outwardNormalMatrix * q.getMatrixRep())(i, 0) > displacements(i, 0)) {
+  //check whether q lies in each of the halfspaces which define the volume
+  for (int i = 0; i < numPlanes; i++)
+  {
+    if (!halfspaces.at(i).contains(q))
+    {
       result = false;
       break;
     }

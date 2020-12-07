@@ -1,24 +1,23 @@
 #ifndef HALFSPACE_H
 #define HALFSPACE_H
 
-#endif
-
 #include "WorldPoint.h"
-// #include <eigen3/Eigen/Dense>
 
 class Halfspace
 {
     public:
         Halfspace() = default;
-        Halfspace(WorldPoint inwardNormal, double displacement);
-        Halfspace(WorldPoint inwardNormal, WorldPoint pointOnPlane);
-        Eigen::Vector3d getOutwardNormal();
+        Halfspace(WorldPoint outwardNormal, double displacement);
+        Halfspace(WorldPoint outwardNormal, WorldPoint pointOnPlane);
+        WorldPoint getOutwardNormal();
         double getDisplacement();
+        bool contains(WorldPoint q);
 
-        // void setNormalVector(WorldPoint x);
-        // void setB(double y);
 
     private:
-        Eigen::Vector3d outwardNormal;
+        WorldPoint outwardNormal;
         double displacement;
 };
+
+
+#endif
