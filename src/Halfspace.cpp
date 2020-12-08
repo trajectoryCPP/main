@@ -19,7 +19,7 @@ double Halfspace::getDisplacement()
 bool Halfspace::contains(WorldPoint q)
 {
     bool result;
-    double dotProduct = outwardNormal.getX() * q.getX() + outwardNormal.getY() * q.getY() + outwardNormal.getZ() * q.getZ();
+    double dotProduct = outwardNormal.getXPos() * q.getXPos() + outwardNormal.getYPos() * q.getYPos() + outwardNormal.getZPos() * q.getZPos();
     if (dotProduct <=  displacement){
         result = true;
     }

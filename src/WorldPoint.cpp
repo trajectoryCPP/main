@@ -1,13 +1,13 @@
 
 #include "WorldPoint.h"
 
-WorldPoint::WorldPoint(double x, double y, double z)
+WorldPoint::WorldPoint(double xPos, double yPos, double zPos)
 {
-  this->xCoord = x;
-  this->yCoord = y;
-  this->zCoord = z;
+  this->xPos = xPos;
+  this->yPos = yPos;
+  this->zPos = zPos;
 }
 
-double WorldPoint::getX() { return xCoord; };
-double WorldPoint::getY() { return yCoord; };
-double WorldPoint::getZ() { return zCoord; };
+double WorldPoint::getXPos() { return xPos; }
+double WorldPoint::getYPos() { return yPos; }
+double WorldPoint::getZPos() { return zPos; }

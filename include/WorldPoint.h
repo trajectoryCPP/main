@@ -1,19 +1,19 @@
 #ifndef WORLDPOINT_H
 #define WORLDPOINT_H
 
-#endif
-
 class WorldPoint
 {
 public:
     WorldPoint() = default;
-    WorldPoint(double x, double y, double z);
-    double getX();
-    double getY();
-    double getZ();
+    WorldPoint(double xPos, double yPos, double zPos);
+    double getXPos();
+    double getYPos();
+    double getZPos();
 
-private:
-    double xCoord;
-    double yCoord;
-    double zCoord;
+protected:
+    double xPos;
+    double yPos;
+    double zPos;
 };
+
+#endif

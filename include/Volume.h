@@ -2,6 +2,7 @@
 #define VOLUME_H
 
 #include "Halfspace.h"
+#include "MovingWorldPoint.h"
 #include <vector>
 
 class Volume
