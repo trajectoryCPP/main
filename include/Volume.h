@@ -16,7 +16,7 @@ class Volume
         void intersectHalfspace(const Halfspace& H); // intersect volume with additional halfspace
         bool contains(WorldPoint); //check whether worldpoint is in volume
 
-    private:
+    protected:
         int numPlanes = 0;
         std::vector<Halfspace> halfspaces;
         

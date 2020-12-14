@@ -1,5 +1,6 @@
 #include "Halfspace.h"
 
+//constructs Halfspace ax + by + cz <= 0, where (a,b,c) is outwardNormal and d is displacement
 Halfspace::Halfspace(WorldPoint outwardNormal, double displacement)
 {
     this->outwardNormal = outwardNormal;
