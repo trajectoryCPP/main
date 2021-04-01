@@ -3,16 +3,16 @@ class WorldPoint
 {
     public:
         WorldPoint(double x, double y, double z);
-        double getXCoord();
-        double getYCoord();
-        double getZCoord();
+        double getXPos();
+        double getYPos();
+        double getZPos();
 
-        void setXCoord(double x);
-        void setYCoord(double y);
-        void setZCoord(double z);
+        void setXPos(double x);
+        void setYPos(double y);
+        void setZPos(double z);
 
     private:  
-        double xCoord;
-        double yCoord;
-        double zCoord;
+        double xPos;
+        double yPos;
+        double zPos;
 };
