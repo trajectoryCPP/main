@@ -31,8 +31,5 @@
 *.out
 *.app
 
-# Python virtual environment
-# *.venv
-
-# vsCode stuff
+#vscode
 .vscode
